@@ -1,6 +1,8 @@
 import { Routes, Route, Link } from "react-router-dom"
 import ExpenseTracker from "./ExpenseTrackerPage"
 import ExpenseTrackerImg from "./assets/Screenshot-expense-tracker.png"
+import NotificationPage from "./NotificationPage"
+import NotificationImg from "./assets/notificationImg.png"
 
 function Home() {
   return (
@@ -52,6 +54,22 @@ function Home() {
             </div>
           </Link>
         </div>
+        <div className="h-screen flex items-center justify-center snap-start p-10">
+          <Link
+            to="/notification-stream"
+            className="relative rounded-3xl overflow-hidden shadow-2xl w-full transition-transform transform hover:scale-[1.02] bg-white"
+          >
+            <img
+              src={NotificationImg}
+              alt="Notifications"
+              className="w-full h-auto object-contain"
+            />
+            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/60 to-transparent p-6">
+              <p className="text-gray-200 text-sm">2024 — 2025</p>
+              <h2 className="text-2xl font-semibold text-white">Real Time Notification</h2>
+            </div>
+          </Link>
+        </div>
         
       </div>
     </div>
@@ -63,6 +81,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/expense-tracker" element={<ExpenseTracker />} />
+      <Route path="/notification-stream" element={<NotificationPage />} />
     </Routes>
   )
 }
